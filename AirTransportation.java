@@ -7,7 +7,7 @@
  */
 public class AirTransportation extends Transport
 {
-    private static final double FEE = 0.04;
+    private static final double FEE = 4.0;
     
     private String name;
     private int numberOfContainers;
@@ -37,5 +37,23 @@ public class AirTransportation extends Transport
     
     public void setNumberOfContainers(int numberOfContainers) {
         this.numberOfContainers = numberOfContainers > 0 ? numberOfContainers : 0;
+    }
+    
+    @Override
+    public double getPriceWithFees() {     
+        return getPrice() * (1.0 + (this.getFees() * 0.01));
+    }
+    
+    @Override
+    public String getTransportType() {
+        return "Transporte Aéreo";
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder(super.toString());
+        builder.append(String.format("Nome: %s\n", getName()));
+        builder.append(String.format("Numero de contentores: %d\n", getNumberOfContainers()));
+        return builder.toString();
     }
 }
