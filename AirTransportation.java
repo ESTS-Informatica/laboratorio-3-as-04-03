@@ -7,14 +7,20 @@
  */
 public class AirTransportation extends Transport
 {
-    private static final double fee = 0.04;
+    private static final double FEE = 0.04;
     
     private String name;
     private int numberOfContainers;
     
     public AirTransportation() {
         super();
-        setFees(fee);
+        setFees(FEE);
+    }
+    
+    public AirTransportation(String name, int numberOfContainers) {
+        this();
+        setNumberOfContainers(numberOfContainers);
+        setName(name);
     }
     
     public String getName() {
