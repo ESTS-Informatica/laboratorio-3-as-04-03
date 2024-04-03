@@ -7,11 +7,12 @@
  */
 public class GroundTransportation extends Transport
 {
+    private static final double fee = 0.03;
     private String licensePlate;
     
     public GroundTransportation() {
         super();
-        setFees(0.03);
+        setFees(fee);
     }
     
     public String getLicensePlate() {
