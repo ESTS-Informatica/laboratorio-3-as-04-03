@@ -54,9 +54,21 @@ public class ShippingCompany extends HashSet<Transport>
                 t.setDestination(destination);
                 t.setPrice(price);
                 inService.add(t);
+                t.setAvailable(false);
                 this.remove(t);
         }
     }
     
-    
+    public void finalizeTransportation(String id) {
+        if(id == null) return ;
+        Transport t = getTransportation(id);
+        if(t != null) {
+            inService.remove(t);
+            t.setOrigin("");
+            t.setDestination("");
+            t.setPrice(0.0);
+            t.setAvailable(true);
+            this.add(t);
+        }
+    }
 }
